@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% load static i18n %} {% block title %}{% trans
+'Movies' %}{% endblock %} {% block content %}
+<h3>{% trans 'Movies' %}</h3>
+<form method="GET">
+  {{ filter.form }}
+  <button type="submit" class="btn btn-primary">Search</button>
+</form>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Year</th>
+      <th colspan="2">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for movie in filter.qs %}
+    <tr>
+      <td><a href="{{ movies.get_absolute_url }}">{{ movie.id }}</a></td>
+      <td><a href="{% url 'movies:detail' movie.id %}">{{ movie.title }}</a></td>
+      <td>{{movie.year}}</td>
+      <td><a class="btn btn-sm btn-info" href="{% url 'movies:update' movie.id %}">Edit</a></td>
+      <td><a class="btn btn-sm btn-danger" href="{% url 'movies:delete' movie.id %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td colspan="3"><a class="btn btn-primary" href="{% url 'movies:create' %}">Add new movie</a></td>
+      <td colspan="3"><a class="btn btn-primary" href="{% url 'movies:review' %}">Add new review</a></td>
+    </tr>
+  </tbody>
+</table>
+{% endblock content %}

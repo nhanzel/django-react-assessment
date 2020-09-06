@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<h1>Register</h1>
+
+
+<form class="form-horizontal" method="post">
+  {% csrf_token %}
+  <table class="table">
+  <tr><td class="text-right"><p class="font-weight-bold">Username: </p></td><td>{{form.username}}</td></tr>
+  <tr><td class="text-right"><p class="font-weight-bold">Password: </p></td><td>{{form.password1}}</td></tr>
+  <tr><td class="text-right"><p class="font-weight-bold">Reenter Password: </p></td><td>{{form.password2}}</td></tr>
+</table>
+  <div class="control-group">
+    <div class="controls">
+      <button type="submit" class="btn btn-lg btn-block btn-primary">
+        Register Account
+      </button>
+    </div>
+  </div>
+</form>
+{% endblock %}

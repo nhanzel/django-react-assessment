@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans 'Movie' %}{% endblock %}
+
+{% block content %}
+<h1>Make a Review</h1>
+
+
+<form class="form-horizontal" method="post" action="{% url 'movies:review' %}">
+  {% csrf_token %}
+  <table class="table">
+      <tr>
+          <td>Movie: </td>
+          <td>{{form.movie}}</td>
+      </tr>
+      <tr>
+          <td>Rating: </td>
+          <td>{{form.rating}}</td>
+      </tr>
+      <tr>
+        <td>Review: </td>
+        <td>{{form.review}}</td>
+    </tr>
+  </table>
+  <div class="control-group">
+    <div class="controls">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>
+{% endblock %}

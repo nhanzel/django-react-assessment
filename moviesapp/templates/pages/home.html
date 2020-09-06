@@ -1,0 +1,67 @@
+{% extends 'base.html' %} {% load static i18n %}
+
+{% block content %}
+  <div class="container">
+  <div class="jumbotron">
+    <h1 class="page-header text-center">Welcome {{user.username}}!</h1>
+  </div>
+  <p class="text-center font-weight-bold">
+    Congratulations! You have successfully installed the Movies
+    CRUD App. You are currently running Django Framework.
+  </p>
+  <p class="text-center">
+    <a
+      class="btn btn-success btn-lg"
+      href="https://github.com/django/django"
+      target="_blank"
+      >Fork Django on GitHub &raquo;</a
+    >
+  </p>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          Follow Development
+        </h3>
+      </div>
+      <div class="panel-body">
+        <p>
+          Django is under active development...
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          Discover Modules
+        </h3>
+      </div>
+      <div class="panel-body">
+        <p>The community is working on...</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          Help &amp; Support
+        </h3>
+      </div>
+      <div class="panel-body">
+        <p>
+          If you need any help or support while developing with
+          Django, you may reach us via...
+        </p>
+      </div>
+    </div>
+  </div>
+  </div>
+{% endblock %}

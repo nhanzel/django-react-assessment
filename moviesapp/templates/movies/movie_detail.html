@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% load static i18n %} {% block title %}{% trans
+'Movie' %}: {{ object.title }}{% endblock %} {% block content %}
+<div class="row">
+  <h3>{{ object.title }}</h3>
+  <a href="{% url 'movies:update' movie.id %}">Edit</a>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <dl class="dl-horizontal">
+      <h3 class="float-left">Rating: {{average_rating}}</h3>
+      <table class="table table-hover">
+        <tr>
+          <td class="text-right font-weight-bold">Year: </td>
+          <td>{{object.year}}</td>
+        </tr>
+        <tr>
+          <td class="text-right font-weight-bold">Released Date: </td>
+          <td>{{object.released_on}}</td>
+        </tr>
+        <tr>
+          <td class="text-right font-weight-bold">Genre: </td>
+          <td>{{object.genre}}</td>
+        </tr>
+        <tr>
+          <td class="text-right font-weight-bold">Rated: </td>
+          <td>{{object.rated}}</td>
+        </tr>
+        <tr>
+          <td class="text-right font-weight-bold">Director: </td>
+          <td>{{object.director}}</td>
+        </tr>
+        <tr>
+          <td class="text-right font-weight-bold">Plot: </td>
+          <td>{{object.plot}}</td>
+        </tr>
+      </table>
+    </dl>
+    <a class="btn btn-primary" href="{% url 'movies:index' %}">Back</a>
+  </div>
+</div>
+{% endblock %}

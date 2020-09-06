@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans 'Movie' %}{% endblock %}
+
+{% block content %}
+<h1>{{ object.title }}</h1>
+
+
+<form class="form-horizontal" method="post" 
+{% if 'create' in request.path %}
+  action="{% url 'movies:create' %}"
+{% else %}
+  action="{% url 'movies:update' object.id %}"
+{% endif %}>
+  {% csrf_token %}
+  <table class="table">
+    <tr>
+      <td>Title: </td>
+      <td>{{form.title}}</td>
+    </tr>
+    <tr>
+      <td>Rated: </td>
+      <td>{{form.rated}}</td>
+    </tr>
+    <tr>
+      <td>Year: </td>
+      <td>{{form.year}}</td>
+    </tr>
+    <tr>
+      <td>Released On: </td>
+      <td>{{form.released_on}}</td>
+    </tr>
+    <tr>
+      <td>Genre: </td>
+      <td>{{form.genre}}</td>
+    </tr>
+    <tr>
+      <td>Director: </td>
+      <td>{{form.director}}</td>
+    </tr>
+    <tr>
+      <td>Plot: </td>
+      <td>{{form.plot}}</td>
+    </tr>
+  </table>
+  <div class="control-group">
+    <div class="controls">
+      <button type="submit" class="btn btn-primary">
+        {% if 'create' in request.path %}{% trans 'Create' %}{% else %}{% trans 'Update' %}{% endif %}
+      </button>
+    </div>
+  </div>
+</form>
+{% endblock %}
